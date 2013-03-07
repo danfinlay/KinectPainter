@@ -1,5 +1,5 @@
 #[@KinectPainter](http://www.twitter.com/KinectPainter)
-![Example image](./sample.jpg)
+![Example image](sample.jpg)
 ##A complete suite for creating paintings with the Kinect, choosing colors with a color picker, and posting the saved images to twitter.
 
 I think people have been missing out on Kinect's potential, so this is one of my examples to show what is possible.  The best moments of inspiration using this have come to me while using unusual shapes as a paintbrush.  It's like foley for the eye.  One shape can represent another.  This concept is old in painting (a fanned brush for bushes) but I think could go new places with this particular tool.  For example, in one image I made a tentacle-faced creature with extension cord tentacles.  In another image I used a mug and bow to simulate a lens flare.
