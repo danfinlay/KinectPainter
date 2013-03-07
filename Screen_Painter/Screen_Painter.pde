@@ -202,7 +202,7 @@ void serialEvent(Serial myPort){
       background(0);
     }
     if(sensors[5]==1){
-      save(int(random(100000))+"drawing.png"); 
+      save("/./images/"+int(random(100000))+"drawing.png"); 
     }
     
   }

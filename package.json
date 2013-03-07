@@ -2,7 +2,8 @@
   "name": "folder-pic-tweeter",
   "version": "0.0.1",
   "dependencies": {
-    "watch": "~0.5.1"
+    "watch": "~0.5.1",
+    "node-twitter": "~0.5.0"
   },
   "engines": {
     "node": "0.8.x",
