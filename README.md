@@ -6,8 +6,8 @@ I think people have been missing out on Kinect's potential, so this is one of my
 
 This project is really three projects in one:
 ##Screen Painter
-A Processing program for painting on the screen using the input from an OpenNI depth sensor like the Kinect.  Uses the [SimpleOpenNI](https://code.google.com/p/simple-openni/) processing library.  Its colors can be toggled with the R,G, and B keys, and the screen can be filled with the Q key.  The S key saves the image to the program's directory.
+A [Processing](http://processing.org/) program for painting on the screen using the input from an OpenNI depth sensor like the Kinect.  Uses the [SimpleOpenNI](https://code.google.com/p/simple-openni/) processing library.  Its colors can be toggled with the R,G, and B keys, and the screen can be filled with the Q key.  The S key saves the image to the program's directory.
 ##color_slider
-An Arduino sketch for making a slider-based color picker that streams its settings to Screen Painter over a serial port.  This sketch is set up for 4 sliders (rgba, or red, green, blue, and alpha (opacity)) although alpha is currently disabled from the processing sketch.
+An [Arduino](http://arduino.cc/) sketch for making a slider-based color picker that streams its settings to Screen Painter over a serial port.  This sketch is set up for 4 sliders (rgba, or red, green, blue, and alpha (opacity)) although alpha is currently disabled from the processing sketch.
 ##picTwitterer
-A node.js program that waits for a new image to be saved in the Screen Painter directory, and then posts it to twitter.
+A [Node.js](http://nodejs.org/) program that waits for a new image to be saved in the Screen Painter directory, and then posts it to twitter.
