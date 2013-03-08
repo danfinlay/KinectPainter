@@ -90,7 +90,7 @@ void draw()
   for(int x=0; x < 640; x++){
      for(int y = 0; y< 480; y++){
         int depthValue = depthValues[y*640+x];
-        if(depthValue<750 && depthValue!=0){
+        if(depthValue<alphaVal && depthValue!=0){
           
 //        int position = mouseX + (mouseY*640);
 //        int depth = depthValues[position];
@@ -125,7 +125,7 @@ void mousePressed(){
 }
 
 void drawCircleFor(int anX, int aY, int aDepth){
-  float alpha = (750-aDepth)/45;
+  float alpha = (alphaVal-aDepth)/45;
 
   fill(redVal,greenVal,blueVal, alpha);
     
@@ -180,7 +180,7 @@ void serialEvent(Serial myPort){
   String myString = myPort.readStringUntil(linefeed);
   
   if(myString != null){
-    println(myString);
+    //println(myString);
     myString = trim(myString);
     
     int sensors[] = int(split(myString, ','));
@@ -188,7 +188,7 @@ void serialEvent(Serial myPort){
     redVal = sensors[0];
     greenVal = sensors[1];
     blueVal = sensors[2];
-    alphaVal = sensors[3];
+    alphaVal = sensors[3]*6;
     String colorString = "";
     colorString+="Red: ";
     colorString+=redVal;
