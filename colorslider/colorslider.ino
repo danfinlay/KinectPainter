@@ -1,3 +1,5 @@
+boolean lightMode = false;
+
 int sliderPin1 = A0;//Red
 int sliderPin2 = A1;//Green
 int sliderPin3 = A2;//Blue
@@ -19,7 +21,7 @@ int rLow = 512;
 
 void setup() {
   
-  Serial.begin(1200);
+  Serial.begin(2400);
   
   rHigh = analogRead(sliderPin1);
   rLow = analogRead(sliderPin1);
@@ -45,13 +47,15 @@ void loop() {
    //For calibrating range:
   //println(r);
   
-  int rLight = map(sensor1Value, 0, 1023, 0, 128);
-  int gLight = map(sensor2Value, 0, 1023, 0, 128);
-  int bLight = map(sensor3Value, 0, 1023, 0, 128);
+  int rLight = map(sensor1Value, 0, 1023, 0, 17);
+  int gLight = map(sensor2Value, 0, 1023, 0, 9);
+  int bLight = map(sensor3Value, 0, 1023, 0, 7);
   
-  analogWrite(rPin, rLight);
-  analogWrite(gPin, gLight);
-  analogWrite(bPin, bLight);
+  if(lightMode){
+    analogWrite(rPin, rLight);
+    analogWrite(gPin, gLight);
+    analogWrite(bPin, bLight);
+  }
   
   String msg = "";
   msg += r;
@@ -64,7 +68,8 @@ void loop() {
   msg+=",";
   
   String fill = "";
-  fill+="0,";
+  fill+="0";
+  fill+=",";
   String save = "";
   save+="0";
     //Fill & Save button logic:
@@ -72,7 +77,8 @@ void loop() {
     //Serial.println("Fill");
     fillButtonPressed = true;
     fill="";
-    fill+='1,';
+    fill+='1';
+    fill+=',';
   }
    if(digitalRead(saveButtonPin)==HIGH && !saveButtonPressed){
     //Serial.println("Save");

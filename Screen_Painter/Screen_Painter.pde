@@ -25,7 +25,7 @@ SimpleOpenNI  context;
 void setup()
 {
   println(Serial.list());
-  myPort = new Serial(this, Serial.list()[4], 1200);
+  myPort = new Serial(this, Serial.list()[4], 2400);
   myPort.bufferUntil(linefeed);
   
   context = new SimpleOpenNI(this);
@@ -42,13 +42,13 @@ void setup()
   }
 
  
-  fill(255,0,0);
+  fill(0,0,0);
   size(640, 480); 
 }
 
 void draw()
 {
-  // update the cam
+  // update the camr
   context.update();
   
   
@@ -125,9 +125,9 @@ void mousePressed(){
 }
 
 void drawCircleFor(int anX, int aY, int aDepth){
-  float penSize = (750-aDepth)/45;
+  float alpha = (750-aDepth)/45;
 
-  fill(redVal,greenVal,blueVal, penSize);
+  fill(redVal,greenVal,blueVal, alpha);
     
   ellipse(anX, aY, 2, 2);
 }
@@ -180,14 +180,11 @@ void serialEvent(Serial myPort){
   String myString = myPort.readStringUntil(linefeed);
   
   if(myString != null){
+    println(myString);
     myString = trim(myString);
     
     int sensors[] = int(split(myString, ','));
-//    for (int sensorNum = 0; sensorNum < sensors.length; sensorNum++){
-//      print("Sensor "+sensorNum+ ": "+ sensors[sensorNum] + "\t");
-//    }
-//    println();
-  
+
     redVal = sensors[0];
     greenVal = sensors[1];
     blueVal = sensors[2];
@@ -195,15 +192,14 @@ void serialEvent(Serial myPort){
     String colorString = "";
     colorString+="Red: ";
     colorString+=redVal;
-   println(colorString);
     
     if(sensors[4]==1){
       fill(redVal,greenVal,blueVal);
-      background(0);
+      background(redVal,greenVal,blueVal);
     }
     if(sensors[5]==1){
-      save("/./images/"+int(random(100000))+"drawing.png"); 
-    }
-    
+      save(int(random(100000))+"drawing.png"); 
+    } 
+    rect(0,0,10,10);
   }
 }
