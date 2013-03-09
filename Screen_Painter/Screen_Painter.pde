@@ -200,6 +200,7 @@ void serialEvent(Serial myPort){
     if(sensors[5]==1){
       save(int(random(100000))+"drawing.png"); 
     } 
+    fill(redVal,greenVal,blueVal);
     rect(0,0,10,10);
   }
 }
